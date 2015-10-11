@@ -22,7 +22,7 @@ $(document).ready(function(){
 
     function randomNum() {
       secretNum = Math.floor(Math.random() * 100) + 1;
-    
+      console.log(secretNum);
     }
 
     randomNum();
@@ -69,10 +69,12 @@ $(document).ready(function(){
 
         if(numGuesses === 1 && userGuess === secretNum){
           $("#feedback").html('Are you clairvoyant? You got it on the first try!');
+          playQueen();
         }
 
         else if(userGuess === secretNum) {
           $("#feedback").html('Congratulations! You got it!');
+          playQueen();
         }
 
         else if(prevGuess) {
@@ -126,6 +128,12 @@ $(document).ready(function(){
           }
 
         }
+
+        function playQueen() {
+          $('#queen-song')[0].volume=0.5;
+          $('#queen-song')[0].load();
+          $('#queen-song')[0].play();
+    }
 
 });
 
