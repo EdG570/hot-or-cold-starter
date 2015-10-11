@@ -22,7 +22,6 @@ $(document).ready(function(){
 
     function randomNum() {
       secretNum = Math.floor(Math.random() * 100) + 1;
-      console.log(secretNum);
     }
 
     randomNum();
