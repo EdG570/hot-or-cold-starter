@@ -32,6 +32,7 @@ $(document).ready(function(){
     /*-----Store user guess -------*/
     var userGuess = '';
     var numGuesses = 0;
+    var prevGuess = '';
 
     $("form").submit(function(event) {
       event.preventDefault();
@@ -41,7 +42,6 @@ $(document).ready(function(){
       $(this).children('#userGuess').val('');
 
       userGuess = parseInt(userGuess);
-      console.log(userGuess);
 
       if(isNaN(userGuess) || userGuess > 100 || userGuess < 1) {
         $("#feedback").html('Please enter a number between 1 and 100! :)');
@@ -59,9 +59,22 @@ $(document).ready(function(){
          
      
     /*--Compares userGuess and secretNum--*/
+    
+
     function howClose(userGuess) {
+
         if(userGuess == secretNum) {
           $("#feedback").html('Congratulations! You got it!');
+        }
+
+        else if(prevGuess) {
+            if(Math.abs(userGuess - secretNum) > Math.abs(prevGuess - secretNum)) {
+              $("#feedback").html("You're getting colder!");
+            }
+
+            else {
+              $("#feedback").html("You're getting warmer!");
+            }
         }
 
         else if(Math.abs((userGuess - secretNum)) <= 10) {
@@ -83,6 +96,11 @@ $(document).ready(function(){
         else {
           $("#feedback").html('You are ICE cold!');
         }
+
+        prevGuess = userGuess;
+
+        return prevGuess;
+
       };
 
 });
