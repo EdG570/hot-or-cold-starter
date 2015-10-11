@@ -40,19 +40,17 @@ $(document).ready(function(){
       userGuess = $('input[name="userGuess"]').val();
       $(this).children('#userGuess').val('');
 
+      userGuess = parseInt(userGuess);
+      console.log(userGuess);
+
       if(isNaN(userGuess) || userGuess > 100 || userGuess < 1) {
-        $("#feedback").replaceWith('<h2 id="#feedback">Please enter a number between 1 and 100! :)</h2>');
+        $("#feedback").html('Please enter a number between 1 and 100! :)');
       }
       else{
-
-        parseInt(userGuess);
-        console.log(userGuess);
+        numGuesses++;
+        $('#count').html(numGuesses);
+        howClose(userGuess);
       };
-
-      numGuesses++;
-      $('#count').replaceWith('<span id="count">' + numGuesses + '</span>');
-
-      howClose(userGuess);
 
       return userGuess;
 
@@ -63,27 +61,27 @@ $(document).ready(function(){
     /*--Compares userGuess and secretNum--*/
     function howClose(userGuess) {
         if(userGuess == secretNum) {
-          $("#feedback").replaceWith('<h2 id="#feedback">Congratulations! You got it!</h2>');
+          $("#feedback").html('Congratulations! You got it!');
         }
 
         else if(Math.abs((userGuess - secretNum)) <= 10) {
-          $("#feedback").replaceWith('<h2 id="#feedback">You are hot!</h2>');
+          $("#feedback").html('You are hot!');
         }
 
         else if(Math.abs((userGuess - secretNum)) <= 20) {
-          $("#feedback").replaceWith('<h2 id="#feedback">You are warm!</h2>');
+          $("#feedback").html('You are warm!');
         }
 
         else if(Math.abs((userGuess - secretNum)) <= 30) {
-          $("#feedback").replaceWith('<h2 id="#feedback">You are cool!</h2>');
+          $("#feedback").html('You are cool!');
         }
 
         else if(Math.abs((userGuess - secretNum)) <= 40) {
-          $("#feedback").replaceWith('<h2 id="#feedback">You are cold!</h2>');
+          $("#feedback").html('You are cold!');
         }
 
         else {
-          $("#feedback").replaceWith('<h2 id="#feedback">You are ICE cold!</h2>');
+          $("#feedback").html('You are ICE cold!');
         }
       };
 
