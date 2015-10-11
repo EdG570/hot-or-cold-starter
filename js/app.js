@@ -1,6 +1,6 @@
 
 $(document).ready(function(){
-	
+	  
 	/*--- Display information modal box ---*/
   	$(".what").click(function(){
     	$(".overlay").fadeIn(1000);
@@ -15,7 +15,6 @@ $(document).ready(function(){
     /*-- Resets Game --*/
     $('.new').click(function newGame(){
         location.reload();
-        randomNum();
     });
 
     /*--- Generates random number between 1 and 100 ---*/
@@ -23,13 +22,13 @@ $(document).ready(function(){
 
     function randomNum() {
       secretNum = Math.floor(Math.random() * 100) + 1;
-      console.log(secretNum);
+    
     }
 
     randomNum();
 
 
-    /*-----Store user guess -------*/
+    /*-----Store, validate, and append user guess -------*/
     var userGuess = '';
     var numGuesses = 0;
     var prevGuess = '';
@@ -61,7 +60,9 @@ $(document).ready(function(){
 
          
      
-    /*--Compares userGuess and secretNum--*/
+    /*--Compares current guesses, previous guesses and 
+    the randomly generated game number with conditional
+    statements--*/
     
 
     function howClose(userGuess) {
@@ -110,19 +111,21 @@ $(document).ready(function(){
 
         prevGuess = userGuess;
 
-        adjustScore(score);
+        adjustScore();
 
-        return prevGuess;
+        //return prevGuess;
 
       };
 
-      function adjustScore(score) {
-        if(userGuess !== secretNum) {
-          score -= 50;
-          $('#points').children('p').html(score);
-          return score;
+      /*---Subtracts 50 from the starting score for incorrect guesses----*/
+        function adjustScore() {
+          if(userGuess !== secretNum) {
+            var newScore = score - (50 * numGuesses);
+            $('#points').children('p').html(newScore);
+            return newScore;
+          }
+
         }
-      }
 
 });
 
