@@ -33,6 +33,7 @@ $(document).ready(function(){
     var userGuess = '';
     var numGuesses = 0;
     var prevGuess = '';
+    var score = 1000;
 
     $("form").submit(function(event) {
       event.preventDefault();
@@ -109,9 +110,19 @@ $(document).ready(function(){
 
         prevGuess = userGuess;
 
+        adjustScore(score);
+
         return prevGuess;
 
       };
+
+      function adjustScore(score) {
+        if(userGuess !== secretNum) {
+          score -= 50;
+          $('#points').children('p').html(score);
+          return score;
+        }
+      }
 
 });
 

@@ -78,6 +78,27 @@ nav a {
 	color: #fff;
 }
 
+nav ul #points-li {
+	width: 10em;
+	margin: 0 auto;
+} 
+
+#points {
+	padding: 5px;
+	background-color: #fff;
+	border-radius: 5px;
+}
+
+nav ul #points-li h3 {
+	 display: inline-block;
+	 color: #fff;
+}
+
+nav ul #points-li #points {
+	display: inline-block;
+	margin-left: 5px;
+}
+
 h1 {
 	font-weight: 900;
 	font-size: 3em;
