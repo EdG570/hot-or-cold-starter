@@ -52,6 +52,8 @@ $(document).ready(function(){
         howClose(userGuess);
       };
 
+      $('#guessList').append('<li>' + userGuess + '</li>')
+
       return userGuess;
 
      });
@@ -63,7 +65,11 @@ $(document).ready(function(){
 
     function howClose(userGuess) {
 
-        if(userGuess == secretNum) {
+        if(numGuesses === 1 && userGuess === secretNum){
+          $("#feedback").html('Are you clairvoyant? You got it on the first try!');
+        }
+
+        else if(userGuess === secretNum) {
           $("#feedback").html('Congratulations! You got it!');
         }
 
@@ -75,6 +81,10 @@ $(document).ready(function(){
             else {
               $("#feedback").html("You're getting warmer!");
             }
+        }
+
+        else if(Math.abs((userGuess - secretNum)) <= 5) {
+          $("#feedback").html('You are smoking hot!');
         }
 
         else if(Math.abs((userGuess - secretNum)) <= 10) {

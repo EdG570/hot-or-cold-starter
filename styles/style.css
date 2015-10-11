@@ -86,6 +86,14 @@ h1 {
 
 }
 
+#hot {
+	color: red;
+}
+
+#cold {
+	color: lightblue;
+}
+
 /*style for hidden modal*/
 .overlay {
 	width: 100%;
