@@ -342,12 +342,13 @@ ul.guessBox li {
 	  background-size: cover;
 	  background-position: center;
 	  background-repeat: no-repeat;
+	  padding-bottom: 2em;
 	 }
 }
 
 @media only screen and (max-width: 400px) {
 	.game {
-		width: 95%;
+		width: 85%;
 	}
 
 	h1 {
@@ -357,6 +358,14 @@ ul.guessBox li {
 	nav ul li {
 		text-transform: uppercase;
 		font-weight: 700;
+		font-size: 0.75em;
+	}
+
+	input {
+		width: 95%;
+	}
+
+	input.text {
 		font-size: 1em;
 	}
 
