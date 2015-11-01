@@ -343,6 +343,7 @@ ul.guessBox li {
 	  background-position: center;
 	  background-repeat: no-repeat;
 	  padding-bottom: 2em;
+	  padding-top: 1em;
 	 }
 }
 
@@ -355,10 +356,19 @@ ul.guessBox li {
 		font-size: 2em;
 	}
 
+	nav ul {
+		width: 100%;
+	}
+
 	nav ul li {
 		text-transform: uppercase;
 		font-weight: 700;
-		font-size: 0.75em;
+		font-size: 1em;
+		margin-right: 1em;
+	}
+
+	#points {
+		margin-right: 1em;
 	}
 
 	input {
@@ -367,6 +377,15 @@ ul.guessBox li {
 
 	input.text {
 		font-size: 1em;
+	}
+
+	nav ul li:first-child {
+		float: none;
+	}
+
+	nav ul li:last-child {
+		float: none;
+		margin-right: 0;
 	}
 
 }
